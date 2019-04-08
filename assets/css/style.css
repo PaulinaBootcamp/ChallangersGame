@@ -1,0 +1,25 @@
+body {}
+
+.container {
+    margin-top: 25px;
+}
+
+.Play_Area {
+    background-image: url('../images/Play_Area.png');
+    background-size: cover;
+}
+
+.charachter {
+    height: 100px;
+}
+
+.player {
+    height: 185px;
+    border: solid black;
+    margin: 5px;
+}
+
+.name, .HP {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
