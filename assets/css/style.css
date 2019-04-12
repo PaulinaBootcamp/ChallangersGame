@@ -1,12 +1,15 @@
-body {}
+body {
+    height: 800px;
+}
 
 .container {
     margin-top: 25px;
-}
-
-.Play_Area {
-    background-image: url('../images/Play_Area.png');
-    background-size: cover;
+    background-image: url(../images/Play_Area.png);
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    position: relative;
 }
 
 .charachter {
@@ -17,9 +20,34 @@ body {}
     height: 185px;
     border: solid black;
     margin: 5px;
+    background-color: white;
 }
 
 .name, .HP {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#challenger {
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+    width: 100%;
+}
+
+#defender {
+    position: absolute;
+    bottom: 100px;
+    left: 900px;
+    width: 100%;
+}
+
+#staging {
+    border: solid 2px deeppink;
+    width: 600px;
+    height: 185px;
+    position: absolute;
+    bottom: 150px;
+    left: 270px;
+    /* right: 50px; */
 }

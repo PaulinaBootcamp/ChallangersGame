@@ -33,7 +33,7 @@
 
             </div>
             <div class="col-md-2 player">
-                <div class="name text-center">Hermione Granger</div>
+                <div class=" name text-center">Hermione Granger</div>
                 <div class="text-center"> <img id="HG" class="charachter" src="assets/images/Hermione Granger.PNG">
                     <div class=" text-center HP">HP 100</div>
                 </div>
@@ -47,7 +47,7 @@
 
             </div>
             <div class="col-md-2 player">
-                <div class="name text-center">Draco Malfoy</div>
+                <div class=" name text-center">Draco Malfoy</div>
                 <div class="text-center"> <img id="DM" class="charachter" src="assets/images/Drako Malfoy.PNG">
                     <div class=" text-center HP">HP 100</div>
                 </div>
@@ -59,7 +59,25 @@
 
             </div>
         </div>
-        <script src="assets/javascript/game.js"></script>
+
+        <!-- this is where I want jQuery to reneder all 4 charachters in intial setup -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="characters"></div>
+            </div>
+        </div>
+
+
+        <div id="challenger" class="text-center"></div>
+        <div id="defender" class="text-center"></div>
+        <div id="staging"></div>
+
+    </div>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
