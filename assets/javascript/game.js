@@ -1,76 +1,88 @@
-var player = document.getElementsByClassName("player");
-console.log("check challenger div " + $("#challanger"));
-
-
-$(player).click(function () {
-    console.log("Player is clicked");
-    $("#defender").append(this);
-
-});
-
-
-
-$(player).click(function () {
-    console.log("Player is clicked");
-    $("#challenger").append(this);
-
-});
-
-
-
-
-
-var challenger;
+var challenger = [];
+var defender = [];
 var staging = [];
-var defender;
-var damage;
-var wins = 0;
 
 
-var characters = {
-    "harry": {
+
+// creates an array of objects for each of the characters
+var characters = [
+    {
         firstName: "Harry",
         lastName: "Potter",
-        hp: 100,
-        attack: 10,
-        counterAttack: 3,
-        imageURL: "Harry Potter.PNG",
+        hp: 130,
+        attack: 40,
+        counterAttack: 15,
+        imageURL: "assets/images/Harry Potter.PNG",
     },
-    "hermione": {
+    {
         firstName: "Hermione",
         lastName: "Granger",
-        hp: 100,
-        attack: 10,
-        counterAttack: 3,
-        imageURL: "assets\images\Hermione Granger.PNG"
+        hp: 150,
+        attack: 50,
+        counterAttack: 20,
+        imageURL: "assets/images/Hermione Granger.PNG"
     },
-    "ron": {
+    {
         firstName: "Ron",
         lastName: "Weasley",
-        hp: 100,
-        attack: 10,
-        counterAttack: 3,
-        imageURL: "assets\images\Ron Weasley.PNG"
+        hp: 110,
+        attack: 7,
+        counterAttack: 7,
+        imageURL: "assets/images/Ron Weasley.PNG"
     }
     ,
-    "draco": {
+    {
         firstName: "Draco",
         lastName: "Malfoy",
-        hp: 100,
-        attack: 10,
-        counterAttack: 3,
-        imageURL: "assets\images\Draco Malfoy.PNG"
+        hp: 140,
+        attack: 20,
+        counterAttack: 17,
+        imageURL: "assets/images/Drako Malfoy.PNG"
     }
-}
-var renderChars = function (characters) {
-    var charDiv = $("<div class='charcter' data-name='" + characters.ron.firstName + "'>");
-    var charName = $("<div class='charcter-name'>".text(characters.ron.firstName + " " + characters.ron.lastName));
-    var charImage = $("<img alt='Student' class='character-img'>").attr("src", characters.ron.imageURL);
-    var charHP = $("<div class='character-HP'>").text(characters.ron.HP);
-    charDiv.append(charName).append(charImage).append(charHP);
-    $("#characters").append(charDiv);
+]
+
+for (var i = 0; i < characters.length; i++) {
+    $("#characters").append(`<div class="col-md-3 text-center "><div class="player_card" id="${characters[i].firstName}"><p>${characters[i].firstName.toString()} ${characters[i].lastName.toString()}</p><p><img class="img-fluid charImg" style="height: 100px" src="${characters[i].imageURL}"</p><p>HP ${characters[i].hp}</p></div></div>`)
+
 }
 
+var challenger = [];
 
-$().append(characters.harry.firstName)
-$("#characters").attr("src", characters.harry.imageURL)
+
+$(".player_card").on("click", function () {
+
+    // if there is no challenger yet, assign the challenger with first click
+    if (challenger.length == 0) {
+
+        //appends player card div to challenger div
+        $("#challenger").append(this);
+
+        //pushes first name of teh character into the challanger array
+        challenger.push($(this).attr('id'));
+        console.log(challenger);
+
+        //empties original characters setup
+        $("#characters").empty();
+
+        //moves charachters that are not in challanger field to staging div
+        for (var i = 0; i < characters.length; i++) {
+            console.log("Characters i " + characters[i].firstName);
+            console.log("Challenger " + challenger[0]);
+
+            // only append charachters taht are not challangers
+            if (characters[i].firstName !== challenger[0]) {
+
+                $("#staging").append(`<div class="col-md-3 text-center "><div class="player_card"><p>${characters[i].firstName.toString()} ${characters[i].lastName.toString()}</p><p><img class="img-fluid charImg" style="height: 100px" src="${characters[i].imageURL}"</p><p>HP ${characters[i].hp}</p></div></div>`);
+                $("#stagig").empty(this)
+            }
+            else { };
+
+        }
+
+    }
+    else {
+        $("#defender").append(this);
+        challenger.push(this);
+        console.log(defender);
+    }
+});
